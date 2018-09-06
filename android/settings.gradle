@@ -1,0 +1,3 @@
+rootProject.name = 'citifyd'
+
+include ':app'
