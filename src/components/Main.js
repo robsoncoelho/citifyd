@@ -16,7 +16,8 @@ class Main extends Component {
         return (
             <View style={Style.page}>
                 <View style={Style.revenueOffer}>
-                    <Text>Citifyd App</Text>
+                    <Text style={Style.revenueOfferName}>$0.50 validation</Text>
+                    <Text style={Style.revenueOfferDescription}>16 oz. coffee purchase ($2.50)</Text>
                 </View>
             </View>
         );

@@ -13,5 +13,16 @@ module.exports = StyleSheet.create({
   		borderRadius: 4,
   		padding: 10,
   		backgroundColor: COLOR.WHITE,
+  	},
+  	revenueOfferName: {
+  		fontFamily: 'OpenSans-Bold',
+  		fontSize: 14,
+  		color: COLOR.DARK_GREY_BLUE
+  	},
+  	revenueOfferDescription: {
+  		fontFamily: 'OpenSans-Regular',
+  		fontSize: 14,
+  		lineHeight: 24,
+  		color: COLOR.DARK_GREY_BLUE
   	}
 });
