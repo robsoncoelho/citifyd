@@ -16,23 +16,22 @@ export default ListItem;
 const Style = StyleSheet.create({
     labelTitle: {
         fontSize: 14,
-        paddingTop: 8,
         letterSpacing: 0.4,
         color: COLOR.WHITE,
         fontFamily: 'OpenSans-Regular',
     },
     labelValue: {
         fontSize: 14,
-        paddingTop: 8,
         letterSpacing: 0.4,
         color: COLOR.WHITE,
         fontFamily: 'OpenSans-SemiBold',
     },
     revenueItem: {
-        paddingBottom: 8,
+        height: 36,
+        alignItems: 'center',
         flexDirection: 'row',
         borderBottomWidth: 1,
         borderBottomColor: COLOR.WHITE_5,
         justifyContent: 'space-between',
-    }
+    },
 })

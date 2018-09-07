@@ -16,39 +16,10 @@ module.exports = StyleSheet.create({
   		borderBottomWidth: 1,
   		borderBottomColor: COLOR.WHITE,
   	},
-  	revenueOffer: {
-  		borderRadius: 5,
-  		paddingVertical: 10,
-  		paddingHorizontal: 15,
-  		backgroundColor: COLOR.WHITE,
-  	},
-  	revenueOfferName: {
-  		fontFamily: 'OpenSans-Bold',
-  		fontSize: 14,
-  		color: COLOR.DARK_GREY_BLUE
-  	},
-  	revenueOfferDescription: {
-  		fontFamily: 'OpenSans-Regular',
-  		fontSize: 14,
-  		lineHeight: 24,
-  		color: COLOR.DARK_GREY_BLUE
-  	},
   	highlight: {
   		marginTop: 8,
   		borderBottomWidth: 1,
   		borderBottomColor: COLOR.WHITE_5,
-  	},
-  	labelTitle: {
-  		fontSize: 14,
-  		letterSpacing: 0.4,
-  		color: COLOR.WHITE,
-  		fontFamily: 'OpenSans-Regular',
-  	},
-  	labelValue: {
-  		fontSize: 14,
-  		letterSpacing: 0.4,
-  		color: COLOR.WHITE,
-  		fontFamily: 'OpenSans-SemiBold',
   	},
   	netRevenueValue: {
   		fontSize: 36,
@@ -56,14 +27,20 @@ module.exports = StyleSheet.create({
   		fontFamily: 'OpenSans-Regular',
   		paddingBottom: 20,
   	},
-  	revenueItem: {
-  		height: 36,
-  		alignItems: 'center',
-  		flexDirection: 'row',
-  		borderBottomWidth: 1,
-  		borderBottomColor: COLOR.WHITE_5,
-  		justifyContent: 'space-between',
-  	},
+    labelTitle: {
+        fontSize: 14,
+        letterSpacing: 0.4,
+        color: COLOR.WHITE,
+        fontFamily: 'OpenSans-Regular',
+    },
+    revenueItem: {
+        height: 36,
+        alignItems: 'center',
+        flexDirection: 'row',
+        borderBottomWidth: 1,
+        borderBottomColor: COLOR.WHITE_5,
+        justifyContent: 'space-between',
+    },
   	revenueTitle: {
   		fontSize: 14,
   		letterSpacing: 0.4,
