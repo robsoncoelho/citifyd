@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Calendar from './common/calendar';
+import Item from './common/listItem';
 import Style from './style';
 
 class Main extends Component {
@@ -21,9 +22,10 @@ class Main extends Component {
                 </View>
 
                 <View style={Style.section}>
-                    <Text style={Style.labelTitle}>Net revenue</Text>
-                    <Text style={Style.netRevenueValue}>$1,189.50</Text>
-
+                    <View style={Style.highlight}>
+                        <Text style={Style.labelTitle}>Net revenue</Text>
+                        <Text style={Style.netRevenueValue}>$1,189.50</Text>
+                    </View>
                     <View style={[Style.revenueItem, Style.revenueItemBorder]}>
                         <Text style={Style.labelTitle}>Gross revenue</Text>
                         <Text style={Style.labelValue}>$1,525.00</Text>
@@ -57,6 +59,12 @@ class Main extends Component {
                         <Text style={Style.labelValue}>Food & Drink</Text>
                     </View>
                 </View>
+
+                <View style={Style.revenueItem}>
+                    <Text style={Style.revenueTitle}>Revenue</Text>
+                    <Text style={Style.revenueKind}>Net</Text>
+                </View>
+
             </View>
         );
     }

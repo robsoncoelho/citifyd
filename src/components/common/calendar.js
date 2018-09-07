@@ -28,7 +28,7 @@ export default Calendar;
 const Style = StyleSheet.create({
     calendar: {
         marginTop: 15,
-        borderRadius: 5,
+        borderRadius: 4,
         overflow: 'hidden',
         flexDirection: 'row',
         alignItems: 'center',
