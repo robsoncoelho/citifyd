@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { STATUS_BAR_HEIGHT, COLOR, PADDING } from './common/variables';
+import { STATUS_BAR_HEIGHT, COLOR, PADDING } from '../../config/variables';
 
 module.exports = StyleSheet.create({
   	page: {

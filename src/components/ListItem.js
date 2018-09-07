@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { COLOR } from './variables'
+import { COLOR } from '../config/variables'
 
 function ListItem(props) {
     return (

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { COLOR } from './variables'
+import PropTypes from 'prop-types';
+import { COLOR } from '../config/variables';
 
 class Calendar extends Component {
     constructor(props) {
@@ -21,6 +22,9 @@ class Calendar extends Component {
             </TouchableOpacity>
         );
     }
+}
+
+Calendar.propTypes = {
 }
 
 export default Calendar;

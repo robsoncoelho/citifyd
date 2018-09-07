@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
-import Calendar from './common/calendar';
-import Item from './common/listItem';
+import { connect } from 'react-redux';
+import Calendar from '../../components/Calendar';
+import Item from '../../components/ListItem';
 import Style from './style';
+
+import { onTest } from '../../actions/main';
 
 class Main extends Component {
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        this.props.onTest('oi')
     }
 
     render() {
@@ -71,4 +78,17 @@ class Main extends Component {
     }
 }
 
-export default Main;
+const mapStateToProps = state => ({
+    test: state.main.test,
+});
+
+const mapDispatchToProps = dispatch => ({
+    onTest: value => {
+        dispatch(onTest(value));
+    },
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Main);
