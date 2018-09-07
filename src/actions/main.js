@@ -4,6 +4,10 @@ import {
 	ON_LOAD_DATA_ERROR
 } from './types';
 
+export function onSelectDate(data) {
+
+}
+
 export function onRequestData(data) {
     return (dispatch, getStore) => {
     	dispatch({ type: ON_REQUEST_DATA });
@@ -29,3 +33,4 @@ function fetchData(data) {
   	return fetch(URL, { method: 'GET'})
      	.then( response => Promise.all([response, response.json()]));
 }
+

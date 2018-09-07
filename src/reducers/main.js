@@ -5,7 +5,7 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    data: [],
+    data: null,
     isloading: false
 };
 
@@ -14,7 +14,7 @@ export default function mainReducer(state = INITIAL_STATE, action) {
         case ON_REQUEST_DATA:
             return { ...state, isloading: true }
         case ON_LOAD_DATA_ERROR:
-            return { ...state, data: [], isloading: false }
+            return { ...state, data: null, isloading: false }
         case ON_LOAD_DATA_SUCCESS:
             return { ...state, data: action.payload, isloading: false }
         default:

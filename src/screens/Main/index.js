@@ -3,9 +3,9 @@ import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
 import { currency } from '../../utils/Currency';
-import Header from '../../components/Header';
-import Calendar from '../../components/Calendar';
-import Item from '../../components/ListItem';
+import Header from '../../components/Header/';
+import Calendar from '../../components/Calendar/';
+import Item from '../../components/ListItem/';
 import Style from './style';
 
 import { onRequestData } from '../../actions/main';
@@ -16,7 +16,7 @@ class Main extends Component {
     }
 
     componentDidMount() {
-        // this.props.onRequestData('')
+        this.props.onRequestData('')
     }
 
     render() {
@@ -30,7 +30,7 @@ class Main extends Component {
                         <Calendar />
                     </View>
 
-                    { data.length !== 0 &&
+                    { data &&
                         <View>
                             <View style={Style.section}>
                                 <View style={Style.highlight}>
