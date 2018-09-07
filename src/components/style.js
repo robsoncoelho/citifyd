@@ -4,10 +4,12 @@ import { STATUS_BAR_HEIGHT, COLOR, PADDING } from './common/variables';
 module.exports = StyleSheet.create({
   	page: {
   		flex: 1,
+    	marginTop: STATUS_BAR_HEIGHT + PADDING.TOP,
+    	marginHorizontal: PADDING.HORIZONTAL,
+    	marginBottom: PADDING.BOTTOM,
+  	},
+  	scrollView: {
   		backgroundColor: COLOR.DARK_GREY_BLUE,
-    	paddingTop: STATUS_BAR_HEIGHT + PADDING.TOP,
-    	paddingHorizontal: PADDING.HORIZONTAL,
-    	paddingBottom: PADDING.BOTTOM,
   	},
   	section: {
   		paddingBottom: 30,
