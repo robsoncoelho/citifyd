@@ -9,6 +9,7 @@ export const COLOR = {
 	TEAL_BLUE_25: 'rgba(0,153,183,.25)',
 	WHITE: '#FFFFFF',
 	WHITE_5: 'rgba(255,255,255,.05)',
+	GREY: '#c5c9c8'
 }
 
 export const PADDING = {

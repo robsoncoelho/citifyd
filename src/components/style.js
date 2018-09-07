@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { STATUS_BAR_HEIGHT, COLOR, PADDING } from './common/variables'
+import { STATUS_BAR_HEIGHT, COLOR, PADDING } from './common/variables';
 
 module.exports = StyleSheet.create({
   	page: {
@@ -9,9 +9,15 @@ module.exports = StyleSheet.create({
     	paddingHorizontal: PADDING.HORIZONTAL,
     	paddingBottom: PADDING.BOTTOM,
   	},
+  	section: {
+  		paddingBottom: 30,
+  		borderBottomWidth: 1,
+  		borderBottomColor: COLOR.WHITE,
+  	},
   	revenueOffer: {
-  		borderRadius: 4,
-  		padding: 10,
+  		borderRadius: 5,
+  		paddingVertical: 10,
+  		paddingHorizontal: 15,
   		backgroundColor: COLOR.WHITE,
   	},
   	revenueOfferName: {
@@ -24,5 +30,36 @@ module.exports = StyleSheet.create({
   		fontSize: 14,
   		lineHeight: 24,
   		color: COLOR.DARK_GREY_BLUE
+  	},
+  	labelTitle: {
+  		fontSize: 14,
+  		paddingTop: 8,
+  		letterSpacing: 0.4,
+  		color: COLOR.WHITE,
+  		fontFamily: 'OpenSans-Regular',
+  	},
+  	labelValue: {
+  		fontSize: 14,
+  		paddingTop: 8,
+  		letterSpacing: 0.4,
+  		color: COLOR.WHITE,
+  		fontFamily: 'OpenSans-SemiBold',
+  	},
+  	netRevenueValue: {
+  		fontSize: 36,
+  		color: COLOR.WHITE,
+  		fontFamily: 'OpenSans-Regular',
+  		paddingBottom: 20,
+  	},
+  	revenueItemBorder: {
+  		borderTopWidth: 1,
+  		borderTopColor: COLOR.WHITE_5,
+  	},
+  	revenueItem: {
+  		paddingBottom: 8,
+  		flexDirection: 'row',
+  		borderBottomWidth: 1,
+  		borderBottomColor: COLOR.WHITE_5,
+  		justifyContent: 'space-between',
   	}
 });
