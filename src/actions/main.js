@@ -25,19 +25,6 @@ export function onRequestData(data) {
     };
 }
 
-function fetchData(data) {
-	const BASE_URL = `https://70443nq7lb.execute-api.us-west-2.amazonaws.com`;
-
-	const date = {
-		day: moment(data).format('DD'),
-		month: moment(data).format('MM'),
-		year: moment(data).format('YYYY')
-	}
-
-	const FINAL_URL = `${BASE_URL}/dev/year/${date.year}/month/${date.month}/day/${date.day}/revenue`;
-
-  	return fetch(FINAL_URL, { method: 'GET'}).then( response => Promise.all([response, response.json()]));
-}
 
 function groupBy(data) {
 	return data.map(function(item, index) {
@@ -51,5 +38,20 @@ function groupBy(data) {
 	  	acc[key] += parseFloat(item.total);
 	  	return acc;
 	}, {});
+}
+
+
+function fetchData(data) {
+	const BASE_URL = `https://70443nq7lb.execute-api.us-west-2.amazonaws.com`;
+
+	const date = {
+		day: moment(data).format('DD'),
+		month: moment(data).format('MM'),
+		year: moment(data).format('YYYY')
+	}
+
+	const FINAL_URL = `${BASE_URL}/dev/year/${date.year}/month/${date.month}/day/${date.day}/revenue`;
+
+  	return fetch(FINAL_URL, { method: 'GET'}).then( response => Promise.all([response, response.json()]));
 }
 

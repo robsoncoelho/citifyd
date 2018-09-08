@@ -16,15 +16,6 @@ class Main extends Component {
         super(props);
     }
 
-    errorMessage() {
-        return (
-            <View>
-                <Text style={Style.errorMessage}>{'Sorry, we had a problem :('}</Text>
-                <Text style={Style.errorMessage}>{'Please, try again.'}</Text>
-            </View>
-        )
-    }
-
     render() {
         const { data, isLoading, requestError } = this.props;
 
@@ -36,16 +27,25 @@ class Main extends Component {
                         <Calendar />
                     </View>
 
-                    { !data && isLoading && <ActivityIndicator style={Style.loading} size="large" color={COLOR.TEAL_BLUE} /> }
+                    { !data && isLoading &&
+                        <ActivityIndicator style={Style.loading} size="large" color={COLOR.TEAL_BLUE} />
+                    }
 
-                    { requestError && this.errorMessage() }
+                    { requestError &&
+                        <View>
+                            <Text style={Style.errorMessage}>{'Sorry, we had a problem :('}</Text>
+                            <Text style={Style.errorMessage}>{'Please, try again.'}</Text>
+                        </View>
+                    }
 
                     { data && !requestError &&
                         <View>
                             <View style={Style.section}>
                                 <View style={Style.highlight}>
                                     <Text style={Style.labelTitle}>{'Net revenue'}</Text>
-                                    <Text style={[Style.netRevenueValue, isLoading && Style.netRevenueLoading]}>{currency(data.net)}</Text>
+                                    <Text style={[Style.netRevenueValue, isLoading && Style.netRevenueLoading]}>
+                                        {currency(data.net)}
+                                    </Text>
                                 </View>
 
                                 <Item
