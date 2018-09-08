@@ -13,9 +13,12 @@ export function onRequestData(data) {
     	return fetchData(data)
     		.then(([response, json]) => {
 		    	if(response.status === 200) {
+
+		    		const res = {...json.revenue, validationGroups: groupBy(json.revenue.validations)};
+
 			    	dispatch({
 			            type: ON_LOAD_DATA_SUCCESS,
-			            payload: json.revenue,
+			            payload: res,
 			        });
 				} else {
 					dispatch({ type: ON_LOAD_DATA_ERROR });
@@ -36,7 +39,20 @@ function fetchData(data) {
 
 	const FINAL_URL = `${BASE_URL}/dev/year/${date.year}/month/${date.month}/day/${date.day}/revenue`;
 
-  	return fetch(FINAL_URL, { method: 'GET'})
-     	.then( response => Promise.all([response, response.json()]));
+  	return fetch(FINAL_URL, { method: 'GET'}).then( response => Promise.all([response, response.json()]));
+}
+
+function groupBy(data) {
+	return data.map(function(item, index) {
+		return {
+			time: moment(item.createdAt).format('ha'),
+			total: item.total
+		}
+	}).reduce(function(acc, item) {
+	  	const key = item.time;
+	  	acc[key] = parseFloat(acc[key]) || [];
+	  	acc[key] += parseFloat(item.total);
+	  	return acc;
+	}, {});
 }
 

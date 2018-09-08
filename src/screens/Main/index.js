@@ -6,14 +6,13 @@ import { currency } from '../../utils/Currency';
 import Header from '../../components/Header/';
 import Calendar from '../../components/Calendar/';
 import Item from '../../components/ListItem/';
+import Chart from '../../components/Chart/';
 import Style from './style';
 
 class Main extends Component {
     constructor(props) {
         super(props);
     }
-
-    componentDidMount() {}
 
     errorMessage() {
         return (
@@ -80,6 +79,8 @@ class Main extends Component {
                                 <Text style={Style.revenueTitle}>{'Revenue'}</Text>
                                 <Text style={Style.revenueKind}>{'Net'}</Text>
                             </View>
+
+                            <Chart />
                         </View>
                     }
                 </View>
