@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 
 import { currency } from '../../utils/Currency';
@@ -8,6 +8,8 @@ import Calendar from '../../components/Calendar/';
 import Item from '../../components/ListItem/';
 import Chart from '../../components/Chart/';
 import Style from './style';
+
+import { COLOR } from '../../config/variables';
 
 class Main extends Component {
     constructor(props) {
@@ -33,6 +35,8 @@ class Main extends Component {
                         <Header data={data} />
                         <Calendar />
                     </View>
+
+                    { !data && isLoading && <ActivityIndicator style={Style.loading} size="large" color={COLOR.TEAL_BLUE} /> }
 
                     { requestError && this.errorMessage() }
 

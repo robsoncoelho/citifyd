@@ -70,5 +70,8 @@ module.exports = StyleSheet.create({
     },
     netRevenueLoading: {
         color: COLOR.WHITE_5
+    },
+    loading: {
+        marginTop: 30,
     }
 });

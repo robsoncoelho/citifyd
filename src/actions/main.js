@@ -13,12 +13,9 @@ export function onRequestData(data) {
     	return fetchData(data)
     		.then(([response, json]) => {
 		    	if(response.status === 200) {
-
-		    		const res = {...json.revenue, validationGroups: groupBy(json.revenue.validations)};
-
 			    	dispatch({
 			            type: ON_LOAD_DATA_SUCCESS,
-			            payload: res,
+			            payload: {...json.revenue, validationGroups: groupBy(json.revenue.validations)},
 			        });
 				} else {
 					dispatch({ type: ON_LOAD_DATA_ERROR });

@@ -22,7 +22,7 @@ class Chart extends Component {
                     style={Style.areaChart}
                     data={values}
                     svg={{ fill: COLOR.TEAL_BLUE_25 }}
-                    contentInset={{ top: 20, left: 15, right: 15 }}>
+                    contentInset={{ top: 20, bottom: 5, left: 15, right: 15 }}>
                     <Grid />
                     <Line />
                     <Dots />
