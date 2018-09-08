@@ -17,6 +17,7 @@ module.exports = StyleSheet.create({
   		borderBottomColor: COLOR.WHITE,
   	},
   	highlight: {
+      height: 95,
   		marginTop: 8,
   		borderBottomWidth: 1,
   		borderBottomColor: COLOR.WHITE_5,
@@ -58,5 +59,15 @@ module.exports = StyleSheet.create({
   		color: COLOR.DARK_GREY_BLUE,
   		fontFamily: 'OpenSans-SemiBold',
   		backgroundColor: COLOR.TEAL_BLUE_TWO,
-  	}
+  	},
+    errorMessage: {
+      color: COLOR.WHITE,
+      textAlign: 'center',
+      fontFamily: 'OpenSans-Regular',
+      marginTop: 15,
+      fontSize: 16,
+    },
+    netRevenueLoading: {
+        color: COLOR.WHITE_5
+    }
 });

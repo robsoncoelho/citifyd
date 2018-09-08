@@ -22,4 +22,7 @@ module.exports = StyleSheet.create({
         borderBottomColor: COLOR.WHITE_5,
         justifyContent: 'space-between',
     },
+    labelLoading: {
+        color: COLOR.WHITE_5
+    }
 });

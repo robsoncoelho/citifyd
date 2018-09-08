@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import DatePicker from 'react-native-datepicker';
-import { onSelectDate } from '../../actions/main';
+import { onRequestData } from '../../actions/main';
 import Style from './style';
 
 class Calendar extends Component {
@@ -14,6 +14,8 @@ class Calendar extends Component {
         this.state = {
             date: ''
         }
+
+        this.onDateChange = this.onDateChange.bind(this);
     }
 
     customCalendarIcon() {
@@ -25,7 +27,20 @@ class Calendar extends Component {
         )
     }
 
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.requestError) {
+            this.setState({ date: '' })
+        }
+    }
+
+    onDateChange(date) {
+        this.setState({date: date})
+        this.props.onRequestData(date);
+    }
+
     render() {
+        const { isLoading } = this.props;
+
         return (
             <DatePicker
                 mode={'date'}
@@ -33,9 +48,10 @@ class Calendar extends Component {
                 format={'MMMM DD, YYYY'}
                 style={Style.calendar}
                 date={this.state.date}
+                disabled={isLoading}
                 cancelBtnText={'Cancel'}
                 confirmBtnText={'Confirm'}
-                maxDate={moment(new Date()).format('MMMM DD, YYYY')}
+                maxDate={moment().subtract(1, 'day').format('MMMM DD, YYYY')}
                 placeholder={'Select date'}
                 iconComponent={this.customCalendarIcon()}
                 customStyles={{
@@ -43,19 +59,20 @@ class Calendar extends Component {
                     dateIcon: Style.calendarIcon,
                     dateText: Style.calendarText,
                 }}
-                onDateChange={(date) => {this.setState({date: date})}}
+                onDateChange={(date) => this.onDateChange(date)}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-
+    isLoading: state.main.isLoading,
+    requestError: state.main.requestError,
 });
 
 const mapDispatchToProps = dispatch => ({
-    onSelectDate: value => {
-        dispatch(onSelectDate(value));
+    onRequestData: value => {
+        dispatch(onRequestData(value));
     },
 });
 

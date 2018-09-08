@@ -6,17 +6,18 @@ import {
 
 const INITIAL_STATE = {
     data: null,
-    isloading: false
+    isLoading: false,
+    requestError: false,
 };
 
 export default function mainReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case ON_REQUEST_DATA:
-            return { ...state, isloading: true }
+            return { ...state, isLoading: true, requestError: false }
         case ON_LOAD_DATA_ERROR:
-            return { ...state, data: null, isloading: false }
+            return { ...state, data: null, isLoading: false, requestError: true }
         case ON_LOAD_DATA_SUCCESS:
-            return { ...state, data: action.payload, isloading: false }
+            return { ...state, data: action.payload, isLoading: false, requestError: false }
         default:
             return state;
     }

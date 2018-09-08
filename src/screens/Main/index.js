@@ -8,19 +8,24 @@ import Calendar from '../../components/Calendar/';
 import Item from '../../components/ListItem/';
 import Style from './style';
 
-import { onRequestData } from '../../actions/main';
-
 class Main extends Component {
     constructor(props) {
         super(props);
     }
 
-    componentDidMount() {
-        this.props.onRequestData('')
+    componentDidMount() {}
+
+    errorMessage() {
+        return (
+            <View>
+                <Text style={Style.errorMessage}>{'Sorry, we had a problem :('}</Text>
+                <Text style={Style.errorMessage}>{'Please, try again.'}</Text>
+            </View>
+        )
     }
 
     render() {
-        const { data, isLoading } = this.props;
+        const { data, isLoading, requestError } = this.props;
 
         return (
             <ScrollView style={Style.scrollView}>
@@ -30,12 +35,14 @@ class Main extends Component {
                         <Calendar />
                     </View>
 
-                    { data &&
+                    { requestError && this.errorMessage() }
+
+                    { data && !requestError &&
                         <View>
                             <View style={Style.section}>
                                 <View style={Style.highlight}>
                                     <Text style={Style.labelTitle}>{'Net revenue'}</Text>
-                                    <Text style={Style.netRevenueValue}>{currency(data.net)}</Text>
+                                    <Text style={[Style.netRevenueValue, isLoading && Style.netRevenueLoading]}>{currency(data.net)}</Text>
                                 </View>
 
                                 <Item
@@ -84,15 +91,9 @@ class Main extends Component {
 const mapStateToProps = state => ({
     data: state.main.data,
     isLoading: state.main.isLoading,
-});
-
-const mapDispatchToProps = dispatch => ({
-    onRequestData: value => {
-        dispatch(onRequestData(value));
-    },
+    requestError: state.main.requestError,
 });
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
 )(Main);

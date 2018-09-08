@@ -36,4 +36,7 @@ module.exports = StyleSheet.create({
         lineHeight: 24,
         color: COLOR.WHITE,
     },
+    revenueOfferLoading: {
+        opacity: 0.2
+    }
 });
