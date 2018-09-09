@@ -9,14 +9,14 @@ class Header extends Component {
 
 		if(data) {
 			return (
-			    <View style={Style.revenueOffer}>
+			    <View testID='revenueOffer' style={Style.revenueOffer}>
 			        <Text style={[Style.revenueOfferName, isLoading && Style.revenueOfferLoading]}>{data.offer.name}</Text>
 			        <Text style={[Style.revenueOfferDescription, isLoading && Style.revenueOfferLoading]}>{data.offer.description}</Text>
 			    </View>
 		    );
 		} else {
 			return (
-			    <View style={Style.revenueWelcome}>
+			    <View testID='revenueWelcome' style={Style.revenueWelcome}>
 			        <Text style={Style.revenueWelcomeText}>{'Daily revenue report'.toUpperCase()}</Text>
 			        <Text style={Style.revenueWelcomeInstruction}>{'Please select a date:'}</Text>
 			    </View>

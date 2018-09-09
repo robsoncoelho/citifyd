@@ -43,6 +43,7 @@ class Calendar extends Component {
 
         return (
             <DatePicker
+                testID='datepicker'
                 mode={'date'}
                 activeOpacity={1}
                 format={'MMMM DD, YYYY'}

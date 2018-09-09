@@ -33,7 +33,11 @@ class Main extends Component {
                     </View>
 
                     { !data && isLoading &&
-                        <ActivityIndicator style={Style.loading} size="large" color={COLOR.TEAL_BLUE} />
+                        <ActivityIndicator
+                            testID='loadingIndicator'
+                            size="large"
+                            style={Style.loading}
+                            color={COLOR.TEAL_BLUE} />
                     }
 
                     { requestError &&
