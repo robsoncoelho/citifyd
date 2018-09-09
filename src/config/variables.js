@@ -21,3 +21,5 @@ export const PADDING = {
 export const IS_IPHONE_X = (Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS && (Dimensions.height === 812 || Dimensions.width === 812))
 
 export const STATUS_BAR_HEIGHT = (Platform.OS === 'ios' ? (IS_IPHONE_X ? 44 : 20) : 0)
+
+export const API_URL = 'https://70443nq7lb.execute-api.us-west-2.amazonaws.com'

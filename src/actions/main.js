@@ -1,4 +1,6 @@
 import moment from 'moment';
+import { API_URL } from '../config/variables';
+import { get } from '../utils/request';
 
 import {
 	ON_REQUEST_DATA,
@@ -42,16 +44,14 @@ function groupBy(data) {
 
 
 function fetchData(data) {
-	const BASE_URL = `https://70443nq7lb.execute-api.us-west-2.amazonaws.com`;
-
 	const date = {
 		day: moment(data).format('DD'),
 		month: moment(data).format('MM'),
 		year: moment(data).format('YYYY')
 	}
 
-	const FINAL_URL = `${BASE_URL}/dev/year/${date.year}/month/${date.month}/day/${date.day}/revenue`;
+	const REQUEST_URL = `${API_URL}/dev/year/${date.year}/month/${date.month}/day/${date.day}/revenue`;
 
-  	return fetch(FINAL_URL, { method: 'GET'}).then( response => Promise.all([response, response.json()]));
+  	return get(REQUEST_URL);
 }
 

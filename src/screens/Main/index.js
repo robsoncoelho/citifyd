@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView, ActivityIndicator } fr
 import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 
-import { currency } from '../../utils/Currency';
+import { currency } from '../../utils/currency';
 import Header from '../../components/Header/';
 import Calendar from '../../components/Calendar/';
 import Item from '../../components/ListItem/';
