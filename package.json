@@ -11,6 +11,7 @@
     "react": "^16.2.0",
     "react-native": "^0.55.0",
     "react-native-datepicker": "^1.7.2",
+    "react-native-splash-screen": "^3.0.6",
     "react-native-svg": "^6.5.2",
     "react-native-svg-charts": "^5.2.0",
     "react-navigation": "^2.0.1",

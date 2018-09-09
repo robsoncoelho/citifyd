@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 
 import { currency } from '../../utils/Currency';
 import Header from '../../components/Header/';
@@ -14,6 +15,10 @@ import { COLOR } from '../../config/variables';
 class Main extends Component {
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        SplashScreen.hide()
     }
 
     render() {

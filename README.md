@@ -7,7 +7,7 @@
 
 ### How to run the project:
 - Open the project folder in the terminal
-- Run build for iOS or Android
+- Run build for iOS or Android:
 - For iOS
 	- react-native run-ios
 - For Android
