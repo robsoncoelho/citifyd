@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ScrollView, Animated, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import SplashScreen from 'react-native-splash-screen';
 
@@ -15,10 +15,38 @@ import { COLOR } from '../../config/variables';
 class Main extends Component {
     constructor(props) {
         super(props);
+
+        this.animations = {
+            headerAnimation: new Animated.Value(0),
+            dataAnimation: new Animated.Value(0),
+        }
     }
 
     componentDidMount() {
-        SplashScreen.hide()
+        SplashScreen.hide();
+        this.initAnimation();
+    }
+
+    componentWillUpdate(nextProps) {
+        if(!this.props.data && nextProps.data) {
+            this.dataAnimation();
+        }
+    }
+
+    initAnimation() {
+        Animated.timing(this.animations.headerAnimation, {
+            toValue: 1,
+            duration: 700,
+            useNativeDriver: true
+        }).start();
+    }
+
+    dataAnimation() {
+        Animated.timing(this.animations.dataAnimation, {
+            toValue: 1,
+            duration: 500,
+            useNativeDriver: true
+        }).start();
     }
 
     render() {
@@ -27,10 +55,15 @@ class Main extends Component {
         return (
             <ScrollView style={Style.scrollView}>
                 <View style={Style.page}>
-                    <View style={Style.section}>
+                    <Animated.View style={[Style.section, {
+                        opacity: this.animations.headerAnimation,
+                        transform: [{
+                            translateY: this.animations.headerAnimation.interpolate({inputRange: [0, 1], outputRange: [-10, 0]})
+                        }]
+                    }]}>
                         <Header data={data} />
                         <Calendar />
-                    </View>
+                    </Animated.View>
 
                     { !data && isLoading &&
                         <ActivityIndicator
@@ -48,7 +81,7 @@ class Main extends Component {
                     }
 
                     { data && !requestError &&
-                        <View>
+                        <Animated.View style={{ opacity: this.animations.dataAnimation }}>
                             <View style={Style.section}>
                                 <View style={Style.highlight}>
                                     <Text style={Style.labelTitle}>{'Net revenue'}</Text>
@@ -94,7 +127,7 @@ class Main extends Component {
                             </View>
 
                             <Chart />
-                        </View>
+                        </Animated.View>
                     }
                 </View>
             </ScrollView>
